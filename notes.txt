@@ -1,0 +1,32 @@
+1. composer create-project laravel/laravel ticketing_app
+2. php artisan make:model Kategori -m
+3. php artisan make:seeder UserSeeder
+4. php artisan make:controller Admin/LocationController --resource
+4. php artisan db:seed --class=CategorySeeder
+5. php artisan db:seed
+6. php artisan make:middleware AdminMiddleware
+7. ->withMiddleware(function (Middleware $middleware) {
+    $middleware->alias([
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+    ]);
+})
+8. php artisan make:controller Admin/CategoryController --resource
+
+Tahap-tahap clone projek ticket dari github :
+git clone https://github.com/obeddx/ticket_app_BK_obed.git
+
+cd ticket_app_BK_obed
+
+copy .env.example .env
+
+composer install 
+npm install
+php artisan breeze:install (choose blade, yes, 1)
+
+php artisan key:generate
+
+php artisan migrate
+php artisan db:seed
+Edit manual routes/web.php dan authSession Controller
+
+php artisan serve
